@@ -78,10 +78,10 @@ const nombres = [
 ];
 
 function buscarComponentes(nombres, buscar) {
-  let bebidasDeseadas = nombres.filter(function (componente) {
+  let componenteDeseado = nombres.filter(function (componente) {
     return componente.includes(buscar);
   });
-  return bebidasDeseadas;
+  return componenteDeseado;
 }
 
 if (buscarComponentes) {
