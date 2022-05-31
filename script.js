@@ -1,171 +1,82 @@
 // Simulador de carrito de compras
 
-let listaComponentesPrecios = "";
-let listaProductos;
-listaProductos = prompt("¡Hola! escribí DO para ver nuestros productos");
-
 const componentes = [
   {
+    id: 1,
     componente: "Placa de video GEFORCE 215",
     marca: "NVIDIA",
-    precioProducto: 360,
+    precio: 1200,
+    imagen: "assets/img/geforce250.jpg",
   },
   {
+    id: 2,
     componente: "Processador AMD 6 nucleos",
     marca: "AMD",
-    precioProducto: 475,
+    precio: 1700,
+    imagen: "assets/img/procesador6nucleos.jpg"
   },
   {
+    id: 3,
     componente: "Processador AMD 4 nucleos",
     marca: "AMD",
-    precioProducto: 350,
+    precio: 2000,
+    imagen: "assets/img/amd4.jpg"
   },
   {
+    id: 4,
     componente: "Motherboard Asus PRIME",
     marca: "Asus",
-    precioProducto: 470,
+    precio: 700,
+    imagen: "assets/img/motherboardasus.png"
   },
   {
+    id: 5,
     componente: "Gabinete SENTEY",
     marca: "SENTEY",
-    precioProducto: 470,
+    precio: 5000,
+    imagen: "assets/img/gabse.jpg"
   },
   {
+    id: 6,
     componente: "Memoria RAM 4gb",
     marca: "KINGSTON",
-    precioProducto: 450,
-  },
-  {
-    componente: "Placa de video ASUS 250",
-    marca: "ASUS",
-    precioProducto: 380,
-  },
-  {
-    componente: "Memoria RAM 8gb",
-    marca: "KINGSTON",
-    precioProducto: 500,
-  },
-  {
-    componente: "Gabinete Pegaxus",
-    sabor: "Pegaxus",
-    precioProducto: 350,
+    precio: 3800,
+    imagen: "assets/img/memr.jpg"
   },
 ];
+// función para mostrar los productos en el HTML
 
-//forEach()
+let carrito = [];
+let tarjeta = document.getElementById("tarjeta");
 
-componentes.forEach((pieza) => {
-  listaComponentesPrecios += pieza.componente + "\n";
-  listaComponentesPrecios += "$" + pieza.precioProducto + "\n";
-});
+productosCarrito();
 
-while (listaProductos !== "DO") {
-  console.log("Incorrecto, ingresar DO");
-  listaProductos = prompt("¡Hola! escribí DO para ver nuestros productos");
-}
-alert("Lista de nuestros productos :" + "\n" + listaComponentesPrecios);
+function productosCarrito() {
+    for (const producto of componentes) {
+        tarjeta.innerHTML += `<div class="card" style="width: 250px;">
+        <h3> ID: ${producto.id} </h3>
+        <img src="${producto.imagen}" width="200" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h4 class="card-title">${producto.componente}</h4>
+        <p><strong> $ ${producto.precio}</strong></p>
+        <button class="btn btn-primary" id="btn${producto.id}">Comprar</button>
+        </div>`;
+    }
 
-// filter()
-
-const nombres = [
-  "Placa de video GEFORCE 215",
-  "Gabinete SENTEY",
-  "Memoria RAM 4gb",
-  "Placa de video ASUS 250",
-  "Memoria RAM 8gb",
-  "Gabinete Pegaxus",
-  "Processador AMD 6 nucleos",
-];
-
-function buscarComponentes(nombres, buscar) {
-  let componenteDeseado = nombres.filter(function (componente) {
-    return componente.includes(buscar);
-  });
-  return componenteDeseado;
+    componentes.forEach(producto => {
+        document.getElementById(`btn${producto.id}`).addEventListener("click", function () {
+            seAgregoAlCarrito(producto);
+        });
+    });
 }
 
-if (buscarComponentes) {
-  alert("Productos recomendados: " + buscarComponentes(nombres, "l"));
-}
-
-// find()
-
-let encontrar = prompt(
-  "Según la lista que viste, seleccioná el producto que desees y mira si está en stock o no"
-);
-const arrayComponentes = [
-  "Placa de video GEFORCE 215",
-  "Processador AMD 6 nucleos",
-  "Processador AMD 4 nucleos",
-  "Motherboard Asus PRIME",
-  "Memoria RAM 8gb",
-];
-const found = arrayComponentes.find((el) => {
-  el;
-});
-
-if (encontrar == "Placa de video GEFORCE 215") {
-  alert("Sí, tu producto está en stock");
-} else if (encontrar == "Processador AMD 6 nucleos") {
-  alert("Sí, tu producto está en stock");
-} else if (encontrar == "Processador AMD 4 nucleos") {
-  alert("Sí, tu producto está en stock");
-} else if (encontrar == "Motherboard Asus PRIME") {
-  alert("Sí, tu producto está en stock");
-} else if (encontrar == "Memoria RAM 8gb") {
-  alert("Sí, tu producto está en stock");
-} else {
-  alert("Lo sentimos, no tenemos stock de este producto");
-}
-
-//function
-
-let productos = prompt(
-  "Comprar productos en stock: \n 1. Placa de video GEFORCE 215 \n 2. Processador AMD 6 nucleos \n 3. Processador AMD 4 nucleos \n 4. Motherboard Asus PRIME  \n 5. Memoria RAM 8gb \n Escribe ESC para finalizar la compra"
-);
-
-function carrito() {
-  switch (productos) {
-    case "1":
-      alert("Placa de video GEFORCE 215 se agregó al carrito");
-      precioFinal(360);
-      break;
-
-    case "2":
-      alert("Processador AMD 6 nucleos se agregó al carrito");
-      precioFinal(475);
-      break;
-
-    case "3":
-      alert("Processador AMD 4 nucleos se agregó al carrito");
-      precioFinal(350);
-      break;
-
-    case "4":
-      alert("Motherboard Asus PRIME se agregó al carrito");
-      precioFinal(470);
-      break;
-
-    case "5":
-      alert("Memoria RAM 8gb se agregó al carrito");
-      precioFinal(500);
-      break;
-
-    default:
-      alert("Aún no tenemos ese refresco en nuestra tienda :(");
-  }
+function seAgregoAlCarrito(nuevo) {
+    carrito.push(nuevo);
+    alert("Este producto se agregó al carrito")
 }
 
 let precioTotal = 0;
 
 function precioFinal(precio) {
   precioTotal += precio;
-}
-
-while (productos != "ESC") {
-  carrito();
-  productos = prompt(
-    "Comprar productos en stock: \n 1. Placa de video GEFORCE 215 \n 2. Processador AMD 6 nucleos \n 3. Processador AMD 4 nucleos \n 4. Motherboard Asus PRIME \n 5. Memoria RAM 8gb \n Escribe ESC para finalizar la compra"
-  );
-}
-alert("Compra finalizada. El precio total de su compra es : $" + precioTotal);
+};
