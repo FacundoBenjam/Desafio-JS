@@ -65,18 +65,27 @@ function productosCarrito() {
 
     componentes.forEach(producto => {
         document.getElementById(`btn${producto.id}`).addEventListener("click", function () {
-            seAgregoAlCarrito(producto);
+            agregarAlCarrito(producto);
         });
     });
 }
 
-function seAgregoAlCarrito(nuevo) {
-    carrito.push(nuevo);
-    alert("Este producto se agregó al carrito")
+
+function agregarAlCarrito(nuevo){
+  carrito.push(nuevo);
+  console.log(carrito);
+  alert("Se agrego el producto: "+nuevo.componente+" agregado al carro!")
+  document.getElementById("carrito-comprar").innerHTML+=`
+  <div class="card">
+      <div class="card-body">
+      ${nuevo.id}
+      ${nuevo.componente}
+      ${nuevo.precio}
+      </div>
+  </div>
+  `;
+
+  sessionStorage.setItem("Productos", JSON.stringify(carrito));
 }
 
-let precioTotal = 0;
 
-function precioFinal(precio) {
-  precioTotal += precio;
-};
