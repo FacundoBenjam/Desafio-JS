@@ -70,12 +70,30 @@ function productosCarrito() {
     });
 }
 
+// Agregar al carrito y guardar en Storage
 
-function agregarAlCarrito(nuevo){
-  carrito.push(nuevo);
-  console.log(carrito);
-  alert("Se agrego el producto: "+nuevo.componente+" agregado al carro!")
-  document.getElementById("carrito-comprar").innerHTML+=`
+function agregarAlCarrito(nuevo) {
+
+  if (carrito.includes(nuevo)) {
+      Swal.fire({
+          title: 'Ya esta en tu carrito!',
+          text: 'Continuar con tu compra',
+          icon: 'warning',
+          confirmButtonText: 'Aceptar'
+      }).showToast();
+  } else {
+      Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: (nuevo.componente + " agregado al carro!"),
+          showConfirmButton: false,
+          timer: 1500
+      })
+      carrito.push(nuevo);
+  }
+
+  document.getElementById("carrito-comprar").innerHTML += `
+
   <div class="card">
       <div class="card-body">
       ${nuevo.id}
@@ -89,3 +107,24 @@ function agregarAlCarrito(nuevo){
 }
 
 
+//Optimizando el proyecto
+
+const productosRecomendados = ["Memoria RAM 4gb", "Processador AMD 6 nucleos", "Gabinete SENTEY"]
+
+const [a,b] = productosRecomendados
+console.log("Los más deseables: "+a+" y "+b);
+
+
+
+let boton = document.getElementById("boton2")
+boton.onclick = () => {
+    productosRecomendados.length !== 0 && Swal.fire({
+        title: 'Productos recomendados!',
+        text: 'Combo Memoria RAM 4GB y Processador AMD 6 nucleos, Compralos YA!',
+        imageUrl: 'Assets/img/x.jpeg',
+        imageWidth: 400,
+        imageHeight: 250,
+        imageAlt: 'componente',
+    })
+    console.log(...productosRecomendados)
+}
