@@ -109,16 +109,16 @@ function agregarAlCarrito(nuevo) {
 
 //Optimizando el proyecto
 
-const productosRecomendados = ["Memoria RAM 4gb", "Processador AMD 6 nucleos", "Gabinete SENTEY"]
+const Recomendados = ["Memoria RAM 4gb", "Processador AMD 6 nucleos", "Gabinete SENTEY"]
 
-const [a,b] = productosRecomendados
+const [a,b] = Recomendados
 console.log("Los más deseables: "+a+" y "+b);
 
 
 
 let boton = document.getElementById("boton2")
 boton.onclick = () => {
-    productosRecomendados.length !== 0 && Swal.fire({
+    Recomendados.length !== 0 && Swal.fire({
         title: 'Productos recomendados!',
         text: 'Combo Memoria RAM 4GB y Processador AMD 6 nucleos, Compralos YA!',
         imageUrl: 'Assets/img/x.jpeg',
@@ -126,5 +126,28 @@ boton.onclick = () => {
         imageHeight: 250,
         imageAlt: 'componente',
     })
-    console.log(...productosRecomendados)
+    console.log(...Recomendados)
 }
+
+
+
+
+
+
+function productosRecomendados() {
+  fetch('recomendados.json')
+      .then(response => response.json())
+      .then(componente => {
+          componente.forEach(componente =>{
+              document.getElementById("tarjeta2").innerHTML+=`  
+              <div class="card" style="width: 250px;">
+              <h3> ${componente.title} </h3>  
+              <img src="${componente.image}" class="card-img-top" alt="...">
+              <div class="card-body">
+              <h4>${componente.price}</h4>
+              `
+          });
+      });
+}
+
+productosRecomendados()

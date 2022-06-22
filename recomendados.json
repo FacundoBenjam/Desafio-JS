@@ -1,0 +1,14 @@
+[  {
+    "title": "Geforce 250",
+    "price": "$360",
+    "image": "assets/img/geforce250.jpg"
+}, {
+    "title": "Processador AMD 6 nucleos",
+    "price": "$475",
+    "image": "assets/img/procesador6nucleos.jpg"
+}, {
+    "title": "Processador AMD 4 nucleos",
+    "price": "$470",
+    "image": "assets/img/amd4.jpg"
+}
+]
