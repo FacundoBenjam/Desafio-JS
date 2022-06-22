@@ -17,60 +17,82 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Hardware Store</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarColor02"
-          aria-controls="navbarColor02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor02">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#"
-                >Home
-                <span class="visually-hidden">(current)</span>
-              </a>
-            </li>
-          </ul>
-
-          <div id="carrito" class="compras">
-            <a
-              href="#staticBackdrop"
-              type="button"
-              data-bs-toggle="offcanvas"
-              aria-controls="staticBackdrop"
-              ><img src="./Assets/img/carrito.png" alt="Carrito"
-            /></a>
+    <main class="main">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Hardware Store</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor02"
+            aria-controls="navbarColor02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#"
+                  >Home
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+            </ul>
+  
+            <div id="carrito" class="compras">
+              <a
+                href="#staticBackdrop"
+                type="button"
+                data-bs-toggle="offcanvas"
+                aria-controls="staticBackdrop"
+                ><img src="./Assets/img/carrito.png" alt="Carrito"
+              /></a>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-      <div class="offcanvas-header">
-        <h2 class="offcanvas-title" id="staticBackdropLabel">Tu carrito</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <div id="carrito-comprar">
-          
+      </nav>
+      <div
+        class="offcanvas offcanvas-start"
+        data-bs-backdrop="static"
+        tabindex="-1"
+        id="staticBackdrop"
+        aria-labelledby="staticBackdropLabel"
+      >
+        <div class="offcanvas-header">
+          <h2 class="offcanvas-title" id="staticBackdropLabel">Tu carrito</h2>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div id="carrito-comprar"></div>
+          <div class="container">
+  
+          </div>
+          <button type="button" class="btn btn-outline-success">
+            Finalizar compra
+          </button>
+          <button type="button" class="btn btn-outline-danger">
+            Vaciar carrito
+          </button>
         </div>
       </div>
-    </div>
-
-    <section class="container">
-      <div class="d-flex justify-content-center mt-4"><h5>Productos</h5></div>
-      <div class="recomendado d-flex justify-content-center mt-4">
-        <button id="boton2" class="boton2 btn btn-secondary">Recomendados</button>
-    </div>
+    </main>
+    <section>
+      <section class="container">
+        <div class="d-flex justify-content-center mt-4"><h5>Productos</h5></div>
+        <div class="recomendado d-flex justify-content-center mt-4">
+          <button id="boton2" class="boton2 btn btn-secondary">
+            Recomendados
+          </button>
+    </section>
     </section>
     <hr />
     <div class="d-flex flex-wrap justify-content-center">
