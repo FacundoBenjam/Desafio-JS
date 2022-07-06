@@ -5,68 +5,77 @@
 *::before {
   padding: 0;
   margin: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 /* Globals */
 html {
   font-size: 62.5%;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+}
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 ul {
-  list-style-type: none; }
+  list-style-type: none;
+}
 
 /*VIEWS*/
 /* Home */
 /* Header */
 body {
-  background-color: rgb(255, 255, 255); }
+  background-color: rgb(255, 255, 255);
+}
 
-  container {
-    margin: 0 auto;
- }
-    .container .card {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      text-align: center;
-      }
+container {
+  margin: 0 auto;
+}
+.container .card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
 
-      img {
-          width: 30px;
-      }
-      .main div button {
-        position: absolute;
-        left: 43%;
-        top: 70%;
-        padding: 10px;
-        cursor: pointer; }
-        .main div button a {
-          color: black;
-          font-weight: 700; }
-      .main .recomendado button {
-        position: absolute;
-        left: 50%;
-        top: 70%;
-        padding: 10px;
-        cursor: pointer;
-        color: black;
-        font-weight: 700; }
-      .main .btn-close {
-        top: 3.5%;
-        left: 85%;
-        opacity: 6; }
-      .main .btn-outline-success {
-        top: 89%;
-        left: 10%;
-        padding: 15px;
-        font-size: 1.6em; }
-      .main .btn-outline-danger {
-        top: 89%;
-        left: 50%;
-        padding: 15px;
-        font-size: 1.6em; }
-    
+img {
+  width: 30px;
+}
+.main div button a {
+  color: black;
+  font-weight: 700;
+}
+.main .recomendado button {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: 700;
+}
+.main .btn-close {
+  top: 3.5%;
+  left: 85%;
+  opacity: 6;
+}
+.main .btn-outline-success {
+  top: 89%;
+  left: 10%;
+  padding: 15px;
+  font-size: 1.6em;
+  position: absolute;
+}
+.main .btn-outline-danger {
+  top: 89%;
+  left: 50%;
+}
+
+.boton-eliminar-producto {
+  top: 89%;
+  left: 50%;
+  padding: 5px 10px;
+  font-size: 1em;
+}
